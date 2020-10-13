@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #bada55;
+}
+
+/* 
+  Navbar Score
+*/
+.score{
+  display: flex;
+  justify-content: center;
+  background: #efbbbb;
+  text-transform: uppercase;
+}
+
+
+/*
+  Cards Section
+*/
+.container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  perspective: 1000px;
+}
+
+.card {
+  width: calc(25% - 10px);  /* 4 columns */
+  height: calc(33.33% - 10px); /* 3 rows */
+  margin: 5px;
+  position: relative;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transform-style: preserve-3d;
+}
+
+.card.flip{
+  transform: rotateY(180deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+.front, .back{
+  position: absolute;  /*  To fit svg inside the card */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background: #c2c2c2;
+  backface-visibility: hidden;
+}
+
+.front{
+  transform: rotateY(180deg);
+}
+
+
+/*
+  Modal
+*/
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.modalContent {
+  padding: 1rem 1.5rem;
+  width: 25rem;
+  background: #fff;
+}
+
+.closeModal {
+  float: right;
+  width: 1.7rem;
+  line-height: 1.5rem;
+  cursor: pointer;
+  background: #c2c2c2;
+  text-align: center;
+}
+
+.closeModal:hover{
+  background: rgba(0,0,0,0.4);
+  transition: 1s; 
+}
+
+.showModal {
+  opacity: 1;
+  visibility: visible;
+  transition: 1s;
+}
+
+.restartBtn {
+  padding: 5px;
+  margin: auto;
+  background: #568aff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
